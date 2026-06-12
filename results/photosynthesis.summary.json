@@ -1,0 +1,142 @@
+{
+  "started_at": "2026-05-24T13:13:31.514211Z",
+  "ended_at": "2026-05-24T13:14:08.397157Z",
+  "mneme_version": "0.1.0",
+  "source": {
+    "kind": "markdown",
+    "path": "examples/sample.md",
+    "title": null,
+    "language": "en"
+  },
+  "config_snapshot": {
+    "llm": {
+      "backend": "ollama",
+      "base_url": "http://localhost:11434",
+      "model": "gemma3:12b-it-q4_K_M",
+      "temperature": 0.2,
+      "top_p": 0.9,
+      "num_ctx": 8192,
+      "seed": 42,
+      "request_timeout_s": 120.0,
+      "max_retries": 3
+    },
+    "embedding": {
+      "backend": "sentence-transformers",
+      "model": "BAAI/bge-small-en-v1.5",
+      "cache_dir": null,
+      "dedup_threshold": 0.85,
+      "max_cards_to_compare": 2000
+    },
+    "chunker": {
+      "target_tokens": 600,
+      "overlap_tokens": 60,
+      "respect_headings": true,
+      "min_chunk_chars": 80
+    },
+    "generator": {
+      "max_facts_per_chunk": 8,
+      "max_cards_per_fact": 2,
+      "avoid_yes_no": true,
+      "avoid_trivial": true,
+      "require_complete_sentences": true
+    },
+    "quality": {
+      "min_question_chars": 8,
+      "min_answer_chars": 1,
+      "max_question_chars": 400,
+      "max_answer_chars": 600,
+      "drop_yes_no": true,
+      "drop_definitional_loops": true,
+      "drop_low_information": true,
+      "min_quality_score": 0.3
+    },
+    "difficulty": {
+      "backend": "heuristic",
+      "n_clauses": 50,
+      "T": 15,
+      "s": 3.9,
+      "state_bits": 8,
+      "model_path": null
+    },
+    "anki": {
+      "deck_name": null,
+      "use_ankiconnect": false,
+      "ankiconnect_url": "http://localhost:8765",
+      "apkg_export_path": "results/photosynthesis.apkg",
+      "note_type": "Basic",
+      "tag_prefix": "mneme"
+    },
+    "cache_dir": "/home/anward/.cache/mneme",
+    "log_level": "INFO",
+    "deterministic": true
+  },
+  "stages": [
+    {
+      "name": "load",
+      "inputs": 0,
+      "outputs": 1,
+      "elapsed_seconds": 0.0731290653347969,
+      "notes": null
+    },
+    {
+      "name": "chunk",
+      "inputs": 0,
+      "outputs": 2,
+      "elapsed_seconds": 0.0002185627818107605,
+      "notes": null
+    },
+    {
+      "name": "extract_facts",
+      "inputs": 2,
+      "outputs": 13,
+      "elapsed_seconds": 15.297415889799595,
+      "notes": null
+    },
+    {
+      "name": "generate_cards",
+      "inputs": 13,
+      "outputs": 19,
+      "elapsed_seconds": 21.191696640104055,
+      "notes": null
+    },
+    {
+      "name": "quality_filter",
+      "inputs": 19,
+      "outputs": 19,
+      "elapsed_seconds": 0.0004894770681858063,
+      "notes": null
+    },
+    {
+      "name": "deduplicate",
+      "inputs": 19,
+      "outputs": 17,
+      "elapsed_seconds": 0.3093572184443474,
+      "notes": null
+    },
+    {
+      "name": "difficulty",
+      "inputs": 17,
+      "outputs": 17,
+      "elapsed_seconds": 0.00041259080171585083,
+      "notes": null
+    },
+    {
+      "name": "write_anki",
+      "inputs": 17,
+      "outputs": 17,
+      "elapsed_seconds": 0.009682517498731613,
+      "notes": "backend=apkg"
+    },
+    {
+      "name": "provenance",
+      "inputs": 0,
+      "outputs": 0,
+      "elapsed_seconds": 0.0,
+      "notes": "{'library_version': '0.1.0', 'prompt_version': '1'}"
+    }
+  ],
+  "cards_emitted": 17,
+  "deck_name": "sample",
+  "apkg_path": "/home/anward/project/mneme/results/photosynthesis.apkg",
+  "anki_note_ids": []
+}

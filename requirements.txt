@@ -1,0 +1,22 @@
+# Core (always installed)
+pydantic>=2.5
+requests>=2.31
+pypdf>=4.0
+ebooklib>=0.18
+markdown-it-py>=3.0
+beautifulsoup4>=4.12
+tqdm>=4.66
+pyyaml>=6.0
+numpy>=1.26
+
+# Recommended (improves quality)
+sentence-transformers>=2.7
+
+# Optional (interpretable card-difficulty classifier)
+tmu>=0.8.3
+
+# Optional (typed Ollama SDK; HTTP via requests works without this)
+ollama>=0.3
+
+# Dev
+pytest>=8.0

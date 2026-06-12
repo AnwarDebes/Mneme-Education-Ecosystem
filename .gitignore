@@ -1,0 +1,57 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+.eggs/
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Virtual envs
+venv/
+.venv/
+env/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+.DS_Store
+
+# Notebook checkpoints
+.ipynb_checkpoints/
+
+# Local environment
+.env
+.envrc
+
+# Cache directories created by the pipeline at runtime
+~/.cache/mneme/
+.mneme_cache/
+
+# Output artifacts (sample runs)
+out/
+output/
+*.apkg
+*.log
+
+# Example fixtures that are too large to ship
+examples/*.pdf
+examples/*.epub
+
+# Assistant / tooling config (never commit)
+.claude/
+CLAUDE.md
+CLAUDE.local.md
+AGENTS.md
+.cursor/
+.cursorrules
+.cursorignore
+.windsurfrules
+.aider*

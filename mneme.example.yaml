@@ -1,0 +1,62 @@
+# mneme example configuration.
+#
+# Every key is optional; the loader merges the file with the defaults
+# defined in src/mneme/config.py. Run `mneme config print` to see the
+# full default. Pass this file with `mneme build my.pdf --config mneme.example.yaml`.
+#
+# The values below are illustrative defaults plus the most common
+# overrides; uncomment what you want to change.
+
+llm:
+  backend: ollama
+  base_url: http://localhost:11434
+  model: qwen2.5:7b-instruct
+  # temperature: 0.2          # higher = more diverse cards, more noise
+  # seed: 42                  # set to null to disable deterministic seeding
+  # request_timeout_s: 120.0  # bump for 14B+ models on CPU
+  # max_retries: 3
+  cache_enabled: true         # disk cache; re-runs skip the LLM entirely
+
+embedding:
+  backend: sentence-transformers
+  model: BAAI/bge-small-en-v1.5
+  # backend: tfidf-fallback   # zero-dependency fallback; slightly weaker dedup
+  # dedup_threshold: 0.85     # raise toward 0.90 to keep more paraphrases
+
+chunker:
+  target_tokens: 600
+  overlap_tokens: 60
+  respect_headings: true
+  # min_chunk_chars: 80
+
+generator:
+  max_facts_per_chunk: 8
+  max_cards_per_fact: 2
+  card_type: basic            # one of: basic, cloze
+  # avoid_yes_no: true
+  # avoid_trivial: true
+
+quality:
+  # min_question_chars: 8
+  # max_question_chars: 400
+  # max_answer_chars: 600
+  # drop_yes_no: true
+  # drop_definitional_loops: true
+  min_quality_score: 0.3
+
+difficulty:
+  backend: heuristic           # one of: heuristic, tsetlin, none
+  # model_path: null           # required when backend=tsetlin
+
+anki:
+  use_ankiconnect: true
+  ankiconnect_url: http://localhost:8765
+  # deck_name: "Biology 101"   # default is the source filename stem
+  # apkg_export_path: out.apkg
+  note_type: Basic             # Anki built-in model AnkiConnect targets
+  note_template: rich          # .apkg template: basic, rich (default), cloze
+  tag_prefix: mneme
+
+# cache_dir: ~/.cache/mneme
+log_level: INFO
+deterministic: true

@@ -1,0 +1,19 @@
+{
+  "name": "mneme",
+  "short_name": "mneme",
+  "description": "Local-first AI flashcard generator and study ecosystem.",
+  "start_url": "/library",
+  "display": "standalone",
+  "background_color": "#fafaf7",
+  "theme_color": "#7c3aed",
+  "orientation": "any",
+  "categories": ["education", "productivity"],
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

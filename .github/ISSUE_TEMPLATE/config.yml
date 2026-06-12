@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Question or discussion
+    url: https://github.com/AnwarDebes/Mneme-Education-Ecosystem/discussions
+    about: Ask a question or share an idea before filing an issue.
+  - name: Security report
+    url: https://github.com/AnwarDebes/Mneme-Education-Ecosystem/security/policy
+    about: Please report vulnerabilities privately, not as a public issue.

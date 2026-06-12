@@ -1,0 +1,228 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Warm paper-flashcard light palette. */
+    --background: 40 30% 98%;
+    --foreground: 220 30% 12%;
+
+    --card: 38 30% 100%;
+    --card-foreground: 220 30% 12%;
+    --popover: 40 30% 99%;
+    --popover-foreground: 220 30% 12%;
+
+    --primary: 250 65% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 38 26% 94%;
+    --secondary-foreground: 220 30% 18%;
+
+    --muted: 38 18% 94%;
+    --muted-foreground: 220 12% 40%;
+
+    --accent: 30 88% 60%;
+    --accent-foreground: 30 100% 12%;
+
+    --destructive: 0 70% 52%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 152 60% 38%;
+    --success-foreground: 0 0% 100%;
+
+    --warn: 30 88% 50%;
+    --warn-foreground: 0 0% 100%;
+
+    --border: 38 16% 88%;
+    --input: 38 16% 88%;
+    --ring: 250 65% 50%;
+
+    --radius: 0.7rem;
+  }
+
+  .dark {
+    /* Deep slate with warm accent. */
+    --background: 230 22% 8%;
+    --foreground: 40 24% 95%;
+
+    --card: 232 22% 12%;
+    --card-foreground: 40 24% 95%;
+    --popover: 232 22% 12%;
+    --popover-foreground: 40 24% 95%;
+
+    --primary: 250 75% 70%;
+    --primary-foreground: 230 22% 8%;
+
+    --secondary: 232 18% 18%;
+    --secondary-foreground: 40 24% 95%;
+
+    --muted: 232 18% 18%;
+    --muted-foreground: 230 10% 64%;
+
+    --accent: 30 88% 65%;
+    --accent-foreground: 230 22% 8%;
+
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 152 60% 50%;
+    --success-foreground: 230 22% 8%;
+
+    --warn: 30 88% 60%;
+    --warn-foreground: 230 22% 8%;
+
+    --border: 232 16% 22%;
+    --input: 232 16% 22%;
+    --ring: 250 75% 70%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1, "ss01" 1;
+  }
+  ::selection {
+    @apply bg-primary/20 text-foreground;
+  }
+}
+
+@layer base {
+  /* Sepia: warm parchment tones */
+  html[data-variant="sepia"] {
+    --background: 36 34% 94%;
+    --foreground: 30 30% 18%;
+    --card: 36 30% 96%;
+    --card-foreground: 30 30% 18%;
+    --secondary: 36 28% 88%;
+    --secondary-foreground: 30 30% 22%;
+    --muted: 36 22% 88%;
+    --muted-foreground: 30 18% 38%;
+    --border: 36 22% 80%;
+    --input: 36 22% 80%;
+    --primary: 22 60% 38%;
+    --primary-foreground: 36 34% 96%;
+    --accent: 30 78% 50%;
+    --ring: 22 60% 38%;
+  }
+  html[data-variant="sepia"].dark {
+    --background: 30 18% 14%;
+    --foreground: 36 28% 92%;
+    --card: 30 18% 17%;
+    --card-foreground: 36 28% 92%;
+    --secondary: 30 16% 22%;
+    --secondary-foreground: 36 28% 92%;
+    --muted: 30 16% 22%;
+    --muted-foreground: 36 12% 64%;
+    --border: 30 16% 24%;
+    --input: 30 16% 24%;
+    --primary: 30 70% 60%;
+    --primary-foreground: 30 18% 14%;
+  }
+
+  /* High contrast: maximum legibility */
+  html[data-variant="high-contrast"] {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 4%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 4%;
+    --secondary: 0 0% 92%;
+    --secondary-foreground: 0 0% 8%;
+    --muted: 0 0% 90%;
+    --muted-foreground: 0 0% 28%;
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --primary: 240 100% 38%;
+    --primary-foreground: 0 0% 100%;
+    --accent: 36 100% 40%;
+    --ring: 240 100% 38%;
+  }
+  html[data-variant="high-contrast"].dark {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 6%;
+    --card-foreground: 0 0% 98%;
+    --secondary: 0 0% 14%;
+    --secondary-foreground: 0 0% 96%;
+    --muted: 0 0% 16%;
+    --muted-foreground: 0 0% 76%;
+    --border: 0 0% 70%;
+    --input: 0 0% 70%;
+    --primary: 60 100% 60%;
+    --primary-foreground: 0 0% 0%;
+  }
+
+  /* OLED black: pure black background to save battery / look sharp */
+  html[data-variant="oled"].dark,
+  html[data-variant="oled"] {
+    --background: 0 0% 0%;
+    --foreground: 220 10% 96%;
+    --card: 0 0% 4%;
+    --card-foreground: 220 10% 96%;
+    --popover: 0 0% 4%;
+    --popover-foreground: 220 10% 96%;
+    --secondary: 220 8% 10%;
+    --secondary-foreground: 220 10% 96%;
+    --muted: 220 8% 10%;
+    --muted-foreground: 220 10% 62%;
+    --border: 220 6% 18%;
+    --input: 220 6% 18%;
+    --primary: 250 85% 75%;
+    --primary-foreground: 0 0% 0%;
+    --accent: 30 90% 65%;
+    --ring: 250 85% 75%;
+  }
+}
+
+@layer utilities {
+  .flashcard-perspective {
+    perspective: 1400px;
+  }
+  .flashcard-flip-inner {
+    transform-style: preserve-3d;
+    transition: transform 480ms cubic-bezier(0.4, 0.0, 0.2, 1);
+  }
+  .flashcard-flip-inner.is-flipped {
+    transform: rotateY(180deg);
+  }
+  .flashcard-face {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+  .flashcard-face--back {
+    transform: rotateY(180deg);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+
+  .paper {
+    background-image:
+      linear-gradient(to bottom, hsl(var(--card)), hsl(var(--card))),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Crect width='80' height='80' fill='none'/%3E%3Cpath d='M0 40 L80 40' stroke='%23000' stroke-opacity='0.04' stroke-width='1'/%3E%3C/svg%3E");
+  }
+
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      hsl(var(--muted)) 0%,
+      hsl(var(--muted) / 0.4) 25%,
+      hsl(var(--muted)) 50%,
+      hsl(var(--muted) / 0.4) 75%,
+      hsl(var(--muted)) 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2s linear infinite;
+  }
+}

@@ -1,0 +1,142 @@
+[project]
+name = "mneme"
+version = "0.2.0"
+description = "Local-first AI flashcard generator. Drop a PDF or text file in, get an Anki deck out, with optional interpretable card-difficulty scoring via Tsetlin Machines."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+keywords = [
+    "anki",
+    "flashcards",
+    "spaced repetition",
+    "FSRS",
+    "education",
+    "local-first",
+    "Ollama",
+    "Tsetlin Machine",
+    "interpretable AI",
+]
+authors = [
+    { name = "Anwar Debes (University of Agder)" },
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Education",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Education",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "pydantic>=2.5",
+    "requests>=2.31",
+    "pypdf>=4.0",
+    "ebooklib>=0.18",
+    "markdown-it-py>=3.0",
+    "beautifulsoup4>=4.12",
+    "tqdm>=4.66",
+    "pyyaml>=6.0",
+    "numpy>=1.26",
+]
+
+[project.optional-dependencies]
+# Embedding backend for semantic de-duplication. Optional because a
+# pure-Python TF-IDF fallback is provided in mneme.embedding.fallback.
+embeddings = [
+    "sentence-transformers>=2.7",
+]
+# Tsetlin Machine difficulty classifier. Optional because a heuristic
+# baseline (mneme.difficulty.heuristic) ships and is used when tmu is
+# not installed.
+tm = [
+    "tmu>=0.8.3",
+]
+# Ollama client is optional too; the HTTP layer (requests) is enough
+# to talk to a running Ollama daemon. This dep is included for users
+# who want the typed Python SDK.
+ollama = [
+    "ollama>=0.3",
+]
+# Optional FastAPI server (REST + SSE) used by the Next.js frontend.
+server = [
+    "fastapi>=0.110",
+    "sse-starlette>=2.0",
+    "uvicorn>=0.29",
+]
+dev = [
+    "pytest>=8.0",
+    "pytest-cov>=4.1",
+    "ruff>=0.4",
+    "mypy>=1.10",
+]
+
+[project.scripts]
+mneme = "mneme.cli:main"
+
+[project.urls]
+Source = "https://github.com/AnwarDebes/Mneme-Education-Ecosystem"
+Citation = "./CITATION.cff"
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["mneme*"]
+
+[tool.setuptools.package-data]
+mneme = ["prompts/*.txt"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
+addopts = "-ra -q"
+filterwarnings = [
+    "ignore::DeprecationWarning",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "SIM"]
+ignore = ["E501"]
+
+[tool.ruff.lint.per-file-ignores]
+# FastAPI uses `File(...)` as a default argument by design, and the
+# `raise HTTPException(...)` pattern includes the originating error
+# message in the detail string, which is the common idiom in the
+# framework. Enforcing B008 / B904 across the server module would be
+# busywork without an actual reliability win.
+"src/mneme/server/app.py" = ["B008", "B904"]
+
+[tool.mypy]
+python_version = "3.10"
+strict_optional = true
+warn_unused_ignores = true
+warn_redundant_casts = true
+# The Pydantic plugin teaches mypy about Field(...) defaults so it
+# does not flag every model construction as "missing argument".
+plugins = ["pydantic.mypy"]
+# Frontend-only / generated / vendored code paths are excluded from
+# type checking. Add new exclusions here rather than scattering
+# # type: ignore comments throughout the source.
+exclude = [
+    "frontend/",
+    "build/",
+    "dist/",
+    ".venv/",
+]
+# The mneme package targets Python 3.10+. Allow the gradual style.
+ignore_missing_imports = true
+
+[tool.pydantic-mypy]
+init_forbid_extra = true
+init_typed = true
+warn_required_dynamic_aliases = true

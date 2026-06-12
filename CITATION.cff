@@ -1,0 +1,50 @@
+cff-version: 1.2.0
+title: "mneme: Local-First AI Flashcard Generator with Interpretable Difficulty Scoring"
+type: software
+authors:
+  - family-names: Debes
+    given-names: Anwar
+    affiliation: "University of Agder (UiA)"
+abstract: >
+  mneme converts any PDF, EPUB, Markdown, HTML, or plain-text source into a
+  spaced-repetition flashcard deck using a local large language model
+  (via Ollama). All processing runs on the user's machine: no cloud API,
+  no data leakage, no per-card cost. Optional card-difficulty scoring
+  uses a Tsetlin Machine to produce interpretable rules ("this card is
+  hard because [clauses]"). Decks are written to Anki via the AnkiConnect
+  plugin or exported as a portable .apkg file.
+version: 0.2.0
+date-released: 2026-06-12
+license: MIT
+keywords:
+  - Anki
+  - flashcards
+  - spaced repetition
+  - FSRS
+  - local-first AI
+  - Ollama
+  - Tsetlin Machine
+  - interpretable AI
+  - education
+references:
+  - type: article
+    authors:
+      - family-names: Granmo
+        given-names: Ole-Christoffer
+    title: "The Tsetlin Machine: A Game Theoretic Bandit Driven Approach to Optimal Pattern Recognition with Propositional Logic"
+    year: 2018
+    journal: arXiv preprint
+    notes: arXiv:1804.01508
+  - type: software
+    authors:
+      - family-names: Elmes
+        given-names: Damien
+    title: "Anki"
+    year: 2006
+    notes: "https://apps.ankiweb.net"
+  - type: software
+    title: "AnkiConnect"
+    notes: "Anki add-on 2055492159 for HTTP-API access from external tools"
+  - type: article
+    title: "FSRS: A Modern Spaced-Repetition Scheduler"
+    notes: "https://github.com/open-spaced-repetition/fsrs4anki"

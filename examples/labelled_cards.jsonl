@@ -1,0 +1,12 @@
+{"question": "What is the capital of France?", "answer": "Paris", "difficulty": "easy"}
+{"question": "What does ATP stand for?", "answer": "Adenosine triphosphate", "difficulty": "easy"}
+{"question": "What is the boiling point of water at sea level in degrees Celsius?", "answer": "100", "difficulty": "easy"}
+{"question": "What are the two main stages of photosynthesis?", "answer": "Light-dependent reactions and the Calvin cycle", "difficulty": "medium"}
+{"question": "Why does the Calvin cycle depend on the light-dependent reactions?", "answer": "It requires the ATP and NADPH produced by the light-dependent reactions to fix carbon dioxide.", "difficulty": "hard"}
+{"question": "List three molecules consumed by photosynthesis.", "answer": "CO2, H2O, light", "difficulty": "medium"}
+{"question": "Name the green pigment that absorbs light energy in chloroplasts.", "answer": "Chlorophyll", "difficulty": "easy"}
+{"question": "Why is photosynthesis described as endothermic?", "answer": "Because the overall reaction absorbs energy (from light) rather than releasing it.", "difficulty": "hard"}
+{"question": "What is the net equation of photosynthesis?", "answer": "6 CO2 + 6 H2O -> C6H12O6 + 6 O2", "difficulty": "medium"}
+{"question": "How many molecules of CO2 are required to produce one molecule of glucose?", "answer": "6", "difficulty": "easy"}
+{"question": "Where in the chloroplast does the Calvin cycle take place?", "answer": "The stroma", "difficulty": "medium"}
+{"question": "Why is photolysis named as such?", "answer": "Because it splits water molecules using light energy; photo = light, lysis = splitting.", "difficulty": "hard"}

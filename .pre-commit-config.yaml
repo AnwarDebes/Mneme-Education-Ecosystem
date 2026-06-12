@@ -1,0 +1,33 @@
+# https://pre-commit.com
+# Run via `pre-commit run --all-files` or set up the git hook with
+# `pre-commit install`. The CI runs the same hooks for parity.
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: trailing-whitespace
+        exclude: \.md$  # Markdown line breaks need two trailing spaces.
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-toml
+      - id: check-json
+        exclude: |
+          (?x)^(
+              frontend/tsconfig\.json|
+              frontend/package-lock\.json
+          )$
+      - id: check-added-large-files
+        args: ["--maxkb=512"]
+      - id: check-merge-conflict
+      - id: mixed-line-ending
+        args: ["--fix=lf"]
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.5.7
+    hooks:
+      - id: ruff
+        args: ["--fix"]
+      # ruff-format is intentionally omitted: the project does not
+      # standardise on a single formatter yet. Run `ruff format` by
+      # hand if you want to experiment with the auto-formatter.
