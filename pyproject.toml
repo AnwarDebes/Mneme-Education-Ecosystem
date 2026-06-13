@@ -83,7 +83,7 @@ Source = "https://github.com/AnwarDebes/Mneme-Education-Ecosystem"
 Citation = "./CITATION.cff"
 
 [build-system]
-requires = ["setuptools>=68", "wheel"]
+requires = ["setuptools>=82.0.1", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools.packages.find]
