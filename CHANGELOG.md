@@ -7,7 +7,12 @@ and the version numbering follows [Semantic Versioning](https://semver.org/spec/
 
 ## [Unreleased]
 
-Nothing yet.
+### Fixed
+
+- `python-multipart` added to the `server` extra; FastAPI needs it for
+  the upload endpoint and the server tests could not collect without it.
+- Six `requests.post(json=payload)` payloads annotated `dict[str, Any]`
+  so mypy passes against current `types-requests` stubs.
 
 ## [0.2.0] - 2026-06-12
 

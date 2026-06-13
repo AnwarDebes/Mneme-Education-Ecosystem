@@ -106,7 +106,7 @@ class AnkiConnectClient:
         }
 
     def _invoke(self, action: str, params: dict[str, Any] | None = None) -> Any:
-        payload = {"action": action, "version": 6, "params": params or {}}
+        payload: dict[str, Any] = {"action": action, "version": 6, "params": params or {}}
         try:
             r = self._session.post(
                 self.config.ankiconnect_url, json=payload, timeout=self.timeout_s

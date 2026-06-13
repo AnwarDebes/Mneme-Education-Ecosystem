@@ -64,6 +64,7 @@ ollama = [
 # Optional FastAPI server (REST + SSE) used by the Next.js frontend.
 server = [
     "fastapi>=0.110",
+    "python-multipart>=0.0.9",
     "sse-starlette>=2.0",
     "uvicorn>=0.29",
 ]

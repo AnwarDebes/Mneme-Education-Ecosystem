@@ -547,7 +547,7 @@ def chat_with_deck(job_id: str, body: ChatRequest) -> ChatResponse:
     if body.system_append:
         system = system + "\n\nADDITIONAL INSTRUCTIONS:\n" + body.system_append
 
-    payload = {
+    payload: dict[str, Any] = {
         "model": model,
         "messages": [
             {"role": "system", "content": system},
@@ -608,7 +608,7 @@ def summarize_deck(job_id: str, body: SummarizeRequest) -> SummarizeResponse:
             "list with no preamble."
         )
 
-    payload = {
+    payload: dict[str, Any] = {
         "model": model,
         "messages": [
             {"role": "system", "content": system + "\n\n" + context},
@@ -663,7 +663,7 @@ def explain_card(job_id: str, body: ExplainRequest) -> ExplainResponse:
         user_lines.append(f"Student's attempt: {body.user_attempt}")
     user_lines.append("Please explain.")
 
-    payload = {
+    payload: dict[str, Any] = {
         "model": model,
         "messages": [
             {"role": "system", "content": system},
@@ -693,7 +693,7 @@ def _call_ollama_chat_json(base_url: str, model: str, system: str, user: str, ti
     """Helper for the AI-authoring endpoints. Asks Ollama for JSON output."""
     import json as _json
 
-    payload = {
+    payload: dict[str, Any] = {
         "model": model,
         "messages": [
             {"role": "system", "content": system},
@@ -1064,7 +1064,7 @@ def improve_card(job_id: str, body: ImproveCardRequest) -> ImproveCardResponse:
     system = _IMPROVE_PROMPTS[mode]
     user = f"QUESTION: {body.question}\nANSWER: {body.answer}\n\nReturn the improved JSON only."
 
-    payload = {
+    payload: dict[str, Any] = {
         "model": model,
         "messages": [
             {"role": "system", "content": system},
