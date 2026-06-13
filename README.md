@@ -224,7 +224,7 @@ sequenceDiagram
     Heur->>Heur: rule 2: contains negation (+1)
     Heur->>Heur: rule 3: long question (+1)
     Heur->>Heur: score = 4 -> HARD
-    Heur-->>Card: difficulty=HARD<br/>rationale="sentence-length answer; contains negation; long question"
+    Heur-->>Card: difficulty=HARD<br/>rationale="sentence-length answer, contains negation, long question"
     Note over TM: optional, opt-in
     Card->>TM: same card
     TM->>TM: TM clauses fire on binary features
@@ -240,30 +240,14 @@ rationale lists which rules fired.
 
 ```mermaid
 flowchart TB
-    subgraph M1[M1 types]
-        T1[types.py:<br/>Source / Chunk /<br/>AtomicFact / Card /<br/>RunSummary]
-    end
-    subgraph M2[M2 config]
-        T2[config.py:<br/>Config + 7 sub-configs<br/>+ YAML + env loaders]
-    end
-    subgraph M3[M3 extraction]
-        T3[extraction/:<br/>PDF / EPUB / MD /<br/>HTML / URL loaders<br/>+ semantic Chunker]
-    end
-    subgraph M4[M4 llm]
-        T4[llm/:<br/>LLMBackend<br/>OllamaBackend<br/>MockBackend<br/>prompts + parsing]
-    end
-    subgraph M5[M5 cards]
-        T5[cards/:<br/>FactExtractor<br/>CardGenerator<br/>QualityFilter<br/>Deduplicator]
-    end
-    subgraph M6[M6 difficulty]
-        T6[difficulty/:<br/>HeuristicDifficulty<br/>TsetlinDifficulty<br/>features.py]
-    end
-    subgraph M7[M7 anki]
-        T7[anki/:<br/>AnkiConnectClient<br/>ApkgExporter]
-    end
-    subgraph M8[M8 pipeline + cli]
-        T8[pipeline.py<br/>cli.py<br/>utils/]
-    end
+    M1["M1 types<br/>Source / Chunk / AtomicFact / Card / RunSummary"]
+    M2["M2 config<br/>Config + 7 sub-configs + YAML + env loaders"]
+    M3["M3 extraction<br/>PDF / EPUB / MD / HTML / URL loaders + Chunker"]
+    M4["M4 llm<br/>LLMBackend, OllamaBackend, MockBackend, prompts + parsing"]
+    M5["M5 cards<br/>FactExtractor, CardGenerator, QualityFilter, Deduplicator"]
+    M6["M6 difficulty<br/>HeuristicDifficulty, TsetlinDifficulty, features"]
+    M7["M7 anki<br/>AnkiConnectClient, ApkgExporter"]
+    M8["M8 pipeline + cli<br/>pipeline.py, cli.py, utils"]
     M1 --> M5
     M1 --> M3
     M2 --> M8
