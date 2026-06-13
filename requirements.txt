@@ -1,5 +1,5 @@
 # Core (always installed)
-pydantic>=2.5
+pydantic>=2.13.4
 requests>=2.31
 pypdf>=4.0
 ebooklib>=0.18
