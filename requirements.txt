@@ -1,7 +1,7 @@
 # Core (always installed)
 pydantic>=2.5
 requests>=2.31
-pypdf>=4.0
+pypdf>=6.13.2
 ebooklib>=0.18
 markdown-it-py>=3.0
 beautifulsoup4>=4.12
