@@ -10,7 +10,7 @@
 [![Release](https://img.shields.io/github/v/release/AnwarDebes/mneme?color=b3552e&label=release)](https://github.com/AnwarDebes/Mneme-Education-Ecosystem/releases)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
-[![Status: alpha](https://img.shields.io/badge/status-alpha-orange.svg)](#honest-status)
+[![Status: alpha](https://img.shields.io/badge/status-alpha-orange.svg)](#status)
 
 **Local-first AI flashcard generator.** Drop a PDF, EPUB, Markdown,
 HTML, or URL in. Get an Anki deck out. All AI runs on your machine
@@ -29,7 +29,7 @@ the device.
 - **Modular blocks.** LLM, embedding, difficulty, and Anki output
   are Protocols; swap any of them with one constructor argument.
   See [`docs/EXTENDING.md`](docs/EXTENDING.md).
-- **Honest documentation.** Numbers in the comparison table below
+- **Measured, not assumed.** Numbers in the comparison table below
   that have not been measured are marked **NOT YET RUN**; the
   benchmark protocol committed-to is in
   [`docs/BENCHMARK.md`](docs/BENCHMARK.md).
@@ -37,7 +37,7 @@ the device.
   bundled sample text with a deterministic mock LLM, so a fresh
   install verifies in seconds without Ollama.
 
-## Honest status
+## Status
 
 ```
  +-----------------------------------------------------------------+
@@ -317,7 +317,7 @@ mneme/
   frontend/                     optional Next.js study app
 ```
 
-## Honest caveats
+## Caveats
 
 * The hand-graded benchmark on real textbook chapters is **not yet
   run**. Numbers in the "How it compares" table are positioning

@@ -15,7 +15,7 @@ Patches that pull in the opposite direction will probably be rejected.
    in F1.
 3. **Modular blocks.** Backends are Protocols; the pipeline never
    knows whether it talks to Ollama, a mock, or a future swap-in.
-4. **Honest documentation.** Numbers in the README that have not been
+4. **Measured, not assumed.** Numbers in the README that have not been
    measured are marked `NOT YET RUN`. New claims need new measurements.
 5. **No new dependencies without a paragraph.** Each runtime dep in
    `requirements.txt` carries its own justification; new ones should
