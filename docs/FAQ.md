@@ -51,7 +51,7 @@ form.
 
 ### Why are some cards weaker than others?
 
-The pipeline is honest about its uncertainty. Every card carries a
+The pipeline is explicit about its uncertainty. Every card carries a
 `quality_score` from the heuristic filter and a `difficulty_rationale`
 from the difficulty classifier. Use the rationale to spot weak cards:
 the most common pattern is a long, listy answer (the model failed to
